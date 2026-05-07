@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Priorización de Inversiones 2026-2028 · Club Campestre de Pereira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green-deep:#1F3D2C;
+  --green-mid:#3D5A45;
+  --green-light:#E8EDDD;
+  --cream:#F8F4EA;
+  --cream-soft:#FBF8F0;
+  --gold:#B08D4F;
+  --gold-soft:#D4B97A;
+  --ink:#1A1A1A;
+  --ink-soft:#4A4A4A;
+  --line:#D9D2C0;
+  --warn:#A04E27;
+  --ok:#3D6A47;
+  --shadow:0 1px 3px rgba(31,61,44,.08),0 8px 24px rgba(31,61,44,.06);
+  --shadow-lg:0 4px 12px rgba(31,61,44,.10),0 24px 64px rgba(31,61,44,.10);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'DM Sans',-apple-system,system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.55;
+  min-height:100vh;
+  font-feature-settings:"kern","liga","ss01";
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(circle at 10% 0%,rgba(176,141,79,.05) 0%,transparent 50%),
+    radial-gradient(circle at 90% 100%,rgba(31,61,44,.04) 0%,transparent 50%);
+}
+
+/* ============ TIPOGRAFÍA ============ */
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;color:var(--green-deep)}
+h1{font-size:clamp(2rem,5vw,3.25rem);line-height:1.05;letter-spacing:-.02em}
+h2{font-size:clamp(1.4rem,3vw,2rem);line-height:1.15}
+h3{font-size:1.2rem;line-height:1.3;font-weight:600}
+.serif{font-family:var(--serif)}
+.label{
+  font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);font-weight:600;
+}
+.lead{font-size:1.05rem;color:var(--ink-soft);font-weight:400;line-height:1.65}
+
+/* ============ ESTRUCTURA ============ */
+.app{max-width:1180px;margin:0 auto;padding:0 1.25rem}
+.shell{min-height:100vh;display:flex;flex-direction:column}
+.bar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(248,244,234,.96);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.bar-inner{
+  max-width:1180px;margin:0 auto;padding:.85rem 1.25rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.crest{
+  font-family:var(--serif);font-size:1.4rem;font-weight:600;
+  color:var(--green-deep);letter-spacing:-.01em;
+  display:flex;align-items:center;gap:.6rem;
+}
+.crest::before{
+  content:"";width:24px;height:24px;
+  background:var(--green-deep);
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2 L4 6 V12 C4 17 7.5 21 12 22 C16.5 21 20 17 20 12 V6 Z' fill='%23000'/></svg>") center/contain no-repeat;
+          mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2 L4 6 V12 C4 17 7.5 21 12 22 C16.5 21 20 17 20 12 V6 Z' fill='%23000'/></svg>") center/contain no-repeat;
+}
+.bar-meta{font-size:.78rem;color:var(--ink-soft);margin-left:auto;letter-spacing:.04em}
+.bar-meta strong{color:var(--green-deep);font-weight:600}
+
+main{flex:1;padding:2.5rem 0 5rem}
+section.view{display:none;animation:fadeIn .35s ease}
+section.view.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ============ PANTALLA 1: BIENVENIDA ============ */
+.welcome{padding:2rem 0 0;max-width:760px;margin:0 auto;text-align:center}
+.welcome .label{margin-bottom:1.5rem;display:block}
+.welcome h1{margin-bottom:1rem}
+.welcome h1 em{font-style:italic;color:var(--gold)}
+.welcome .lead{margin-bottom:2.5rem;max-width:580px;margin-left:auto;margin-right:auto}
+.welcome-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line);
+  margin:2rem auto 3rem;max-width:680px;
+}
+.welcome-stat{
+  background:var(--cream-soft);padding:1.4rem 1rem;text-align:center;
+}
+.welcome-stat-num{
+  font-family:var(--serif);font-size:2.2rem;line-height:1;
+  color:var(--green-deep);font-weight:600;margin-bottom:.3rem;
+}
+.welcome-stat-lbl{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+
+.input-block{margin:2.5rem auto;max-width:440px;text-align:left}
+.input-block label{
+  display:block;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--green-deep);margin-bottom:.6rem;font-weight:600;
+}
+.input-block input,.input-block select{
+  width:100%;padding:.95rem 1.1rem;
+  background:var(--cream-soft);
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-family:var(--sans);font-size:1rem;color:var(--ink);
+  transition:border-color .2s,box-shadow .2s;
+}
+.input-block input:focus,.input-block select:focus{
+  outline:none;border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(176,141,79,.15);
+}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:.95rem 2.2rem;
+  background:var(--green-deep);color:var(--cream);
+  border:none;border-radius:2px;
+  font-family:var(--sans);font-size:.85rem;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;
+  cursor:pointer;transition:all .2s ease;
+  box-shadow:var(--shadow);
+  text-decoration:none;
+}
+.btn:hover{background:var(--green-mid);transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+.btn:active{transform:translateY(0)}
+.btn-gold{background:var(--gold);color:white}
+.btn-gold:hover{background:#9a7a42}
+.btn-ghost{background:transparent;color:var(--green-deep);border:1px solid var(--green-deep)}
+.btn-ghost:hover{background:var(--green-deep);color:var(--cream)}
+.btn-sm{padding:.55rem 1.2rem;font-size:.72rem;letter-spacing:.12em}
+
+/* ============ PANTALLA 2: DASHBOARD ============ */
+.dash-head{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  flex-wrap:wrap;gap:1rem;margin-bottom:2rem;
+  padding-bottom:1.5rem;border-bottom:1px solid var(--line);
+}
+.dash-head h2{margin-bottom:.4rem}
+.dash-head-meta{font-size:.85rem;color:var(--ink-soft)}
+.progress-line{
+  height:4px;background:var(--line);border-radius:2px;
+  overflow:hidden;margin-top:.6rem;width:240px;max-width:100%;
+}
+.progress-fill{
+  height:100%;background:var(--gold);
+  transition:width .4s ease;
+}
+.dash-actions{display:flex;gap:.6rem;flex-wrap:wrap}
+
+.filter-bar{
+  display:flex;gap:.4rem;flex-wrap:wrap;
+  margin-bottom:1.5rem;
+}
+.chip{
+  padding:.4rem .9rem;
+  background:transparent;border:1px solid var(--line);border-radius:100px;
+  font-size:.78rem;color:var(--ink-soft);cursor:pointer;
+  transition:all .15s ease;
+  font-family:var(--sans);
+}
+.chip:hover{border-color:var(--green-deep);color:var(--green-deep)}
+.chip.active{background:var(--green-deep);color:var(--cream);border-color:var(--green-deep)}
+.chip strong{font-weight:600}
+
+.proj-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;
+}
+.proj-card{
+  background:var(--cream-soft);
+  border:1px solid var(--line);
+  padding:1.25rem 1.3rem 1.15rem;
+  cursor:pointer;
+  transition:all .2s ease;
+  position:relative;
+  display:flex;flex-direction:column;
+  min-height:160px;
+}
+.proj-card:hover{
+  border-color:var(--green-deep);
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-lg);
+}
+.proj-card.complete{
+  border-color:var(--ok);
+  background:linear-gradient(180deg,#F1F5EB 0%,var(--cream-soft) 100%);
+}
+.proj-card.complete::after{
+  content:"✓";position:absolute;top:1rem;right:1rem;
+  width:24px;height:24px;border-radius:50%;
+  background:var(--ok);color:white;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;font-weight:700;
+}
+.proj-card.partial{border-color:var(--gold-soft)}
+.proj-num{
+  font-size:.7rem;letter-spacing:.16em;color:var(--gold);font-weight:600;
+  margin-bottom:.4rem;
+}
+.proj-name{
+  font-family:var(--serif);font-size:1.25rem;line-height:1.2;
+  color:var(--green-deep);font-weight:500;margin-bottom:.5rem;
+}
+.proj-capex{
+  font-size:.85rem;color:var(--ink-soft);margin-bottom:auto;
+  font-variant-numeric:tabular-nums;
+}
+.proj-capex strong{color:var(--ink);font-weight:600}
+.proj-mini-bar{
+  height:3px;background:var(--line);border-radius:2px;overflow:hidden;
+  margin-top:1rem;
+}
+.proj-mini-fill{
+  height:100%;background:var(--gold);transition:width .3s ease;
+}
+.proj-mini-fill.full{background:var(--ok)}
+.proj-status{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:.5rem;font-size:.72rem;color:var(--ink-soft);
+}
+
+/* ============ PANTALLA 3: VOTACIÓN POR PROYECTO ============ */
+.vote-head{
+  margin-bottom:2rem;padding-bottom:1.5rem;
+  border-bottom:1px solid var(--line);
+}
+.vote-back{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-soft);text-decoration:none;cursor:pointer;
+  background:transparent;border:none;font-family:var(--sans);
+  padding:0;margin-bottom:1.5rem;
+}
+.vote-back:hover{color:var(--green-deep)}
+.vote-title-row{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;flex-wrap:wrap}
+.vote-title-row h2{margin-bottom:.3rem}
+.vote-meta{font-size:.85rem;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.vote-meta strong{color:var(--green-deep);font-weight:600;font-size:1rem}
+
+.crit-block{
+  background:var(--cream-soft);
+  border:1px solid var(--line);
+  padding:1.5rem 1.6rem 1.4rem;
+  margin-bottom:1rem;
+  position:relative;
+  transition:border-color .2s ease;
+}
+.crit-block.answered{
+  border-left:3px solid var(--ok);
+  padding-left:calc(1.6rem - 2px);
+}
+.crit-head{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  gap:1rem;margin-bottom:.8rem;flex-wrap:wrap;
+}
+.crit-cat{
+  font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);font-weight:600;
+}
+.crit-name{
+  font-family:var(--serif);font-size:1.25rem;line-height:1.25;
+  color:var(--green-deep);font-weight:500;margin:.2rem 0 .5rem;
+}
+.crit-weight{
+  font-size:.72rem;letter-spacing:.05em;color:var(--ink-soft);
+  background:var(--green-light);
+  padding:.25rem .6rem;border-radius:100px;
+  font-weight:500;white-space:nowrap;
+}
+.crit-desc{
+  font-size:.92rem;color:var(--ink-soft);
+  margin-bottom:1rem;line-height:1.55;
+}
+.crit-context{
+  font-size:.85rem;color:var(--ink-soft);
+  background:#FBF6E8;
+  padding:.7rem .9rem;
+  border-left:2px solid var(--gold-soft);
+  margin-bottom:1.2rem;font-style:italic;
+}
+.crit-context.empty{
+  font-style:normal;color:var(--ink-soft);
+  background:#F5F5F0;border-left-color:var(--line);
+}
+
+.scale{
+  display:grid;
+  grid-template-columns:repeat(10,1fr);
+  gap:.35rem;
+  margin:1rem 0 .6rem;
+}
+.score-btn{
+  aspect-ratio:1;
+  background:var(--cream);
+  border:1px solid var(--line);
+  border-radius:2px;
+  font-family:var(--serif);font-size:1.2rem;font-weight:500;
+  color:var(--green-deep);cursor:pointer;
+  transition:all .15s ease;
+  font-variant-numeric:tabular-nums;
+  -webkit-tap-highlight-color:transparent;
+  user-select:none;
+}
+.score-btn:hover{border-color:var(--green-deep);background:var(--green-light)}
+.score-btn.selected{
+  background:var(--green-deep);
+  color:var(--cream);
+  border-color:var(--green-deep);
+  transform:scale(1.05);
+  box-shadow:var(--shadow);
+}
+.scale-legend{
+  display:flex;justify-content:space-between;
+  font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-soft);margin-top:.4rem;
+}
+
+.vote-foot{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:2.5rem;padding-top:1.5rem;
+  border-top:1px solid var(--line);flex-wrap:wrap;gap:1rem;
+}
+
+/* ============ PANTALLA 4: REVISIÓN Y EXPORTACIÓN ============ */
+.review-summary{
+  background:var(--green-deep);color:var(--cream);
+  padding:2rem 2rem 1.8rem;margin-bottom:2rem;
+  position:relative;overflow:hidden;
+}
+.review-summary::before{
+  content:"";position:absolute;top:-50px;right:-50px;width:200px;height:200px;
+  background:radial-gradient(circle,rgba(176,141,79,.2) 0%,transparent 70%);
+}
+.review-summary h2{color:var(--cream);margin-bottom:.5rem;position:relative}
+.review-summary p{color:rgba(248,244,234,.85);font-size:.95rem;position:relative}
+.review-stats{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1.5rem;
+  margin-top:1.5rem;position:relative;
+}
+.review-stat-num{
+  font-family:var(--serif);font-size:2.4rem;line-height:1;font-weight:500;
+  color:var(--gold-soft);
+}
+.review-stat-lbl{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.75;margin-top:.4rem}
+
+.review-table-wrap{
+  background:var(--cream-soft);border:1px solid var(--line);
+  margin-bottom:2rem;overflow-x:auto;
+}
+.review-table{
+  width:100%;border-collapse:collapse;font-size:.85rem;
+  min-width:680px;
+}
+.review-table th,.review-table td{
+  padding:.7rem .8rem;text-align:left;
+  border-bottom:1px solid var(--line);
+}
+.review-table th{
+  background:var(--green-light);
+  font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--green-deep);font-weight:600;position:sticky;top:0;
+}
+.review-table td.num{
+  font-variant-numeric:tabular-nums;text-align:center;
+  font-family:var(--serif);font-size:1rem;font-weight:500;
+}
+.review-table tr:hover{background:rgba(176,141,79,.04)}
+.review-table .pname{font-weight:500;color:var(--green-deep)}
+.review-table .pinc{color:var(--warn);font-weight:600;font-size:.78rem}
+
+/* ============ ALERTAS / TOAST ============ */
+.toast{
+  position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--green-deep);color:var(--cream);
+  padding:.85rem 1.6rem;border-radius:2px;
+  font-size:.85rem;letter-spacing:.05em;
+  opacity:0;pointer-events:none;
+  transition:all .3s ease;z-index:200;
+  box-shadow:var(--shadow-lg);
+  max-width:90vw;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.warn{background:var(--warn)}
+
+/* ============ CRITERIOS REFERENCIA ============ */
+.crit-ref-toggle{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold);text-decoration:none;cursor:pointer;
+  background:transparent;border:none;font-family:var(--sans);font-weight:500;
+}
+.crit-ref-toggle:hover{color:var(--green-deep)}
+
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(26,26,26,.5);
+  z-index:100;opacity:0;pointer-events:none;
+  transition:opacity .25s ease;
+  display:flex;align-items:center;justify-content:center;
+  padding:1rem;
+}
+.modal-overlay.active{opacity:1;pointer-events:auto}
+.modal{
+  background:var(--cream);max-width:680px;width:100%;
+  max-height:85vh;overflow-y:auto;
+  padding:2rem 2.2rem;border:1px solid var(--gold-soft);
+  position:relative;transform:scale(.95);
+  transition:transform .25s ease;
+}
+.modal-overlay.active .modal{transform:scale(1)}
+.modal-close{
+  position:absolute;top:1rem;right:1rem;width:32px;height:32px;
+  background:transparent;border:1px solid var(--line);
+  cursor:pointer;font-size:1.1rem;line-height:1;
+  color:var(--ink-soft);
+}
+.modal-close:hover{border-color:var(--green-deep);color:var(--green-deep)}
+.modal h2{margin-bottom:.5rem}
+.modal-sub{color:var(--ink-soft);font-size:.9rem;margin-bottom:1.5rem}
+
+.crit-list{margin-top:1rem}
+.crit-list-item{
+  padding:1rem 0;border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:start;
+}
+.crit-list-item:last-child{border-bottom:none}
+.crit-list-num{
+  font-family:var(--serif);font-size:1.6rem;line-height:1;
+  color:var(--gold);font-weight:500;
+}
+.crit-list-name{font-weight:600;color:var(--green-deep);margin-bottom:.25rem;font-size:.95rem}
+.crit-list-desc{font-size:.85rem;color:var(--ink-soft);line-height:1.5}
+.crit-list-w{
+  font-size:.8rem;color:var(--ink-soft);font-weight:500;
+  background:var(--green-light);padding:.2rem .55rem;border-radius:100px;white-space:nowrap;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:640px){
+  .app{padding:0 1rem}
+  main{padding:1.5rem 0 4rem}
+  .welcome-stats{grid-template-columns:1fr}
+  .scale{gap:.25rem}
+  .score-btn{font-size:1rem}
+  .crit-block{padding:1.2rem 1.1rem 1.1rem}
+  .crit-block.answered{padding-left:calc(1.1rem - 2px)}
+  .review-summary{padding:1.5rem 1.4rem}
+  .modal{padding:1.5rem 1.3rem}
+  .crit-list-item{grid-template-columns:auto 1fr;gap:.8rem}
+  .crit-list-w{grid-column:2;justify-self:start;margin-top:.3rem}
+  .bar-meta{display:none}
+  .bar-inner{padding:.7rem 1rem}
+  .crest{font-size:1.15rem}
+}
+@media (max-width:380px){
+  .scale{grid-template-columns:repeat(5,1fr);gap:.3rem}
+  .score-btn{font-size:.95rem}
+  .scale-legend{display:none}
+}
+
+
+.admin-top-btn{
+  margin-left:.75rem;
+  padding:.45rem .9rem;
+  background:transparent;
+  border:1px solid var(--green-deep);
+  color:var(--green-deep);
+  border-radius:2px;
+  font-size:.7rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  cursor:pointer;
+  font-family:var(--sans);
+}
+.admin-top-btn:hover{background:var(--green-deep);color:var(--cream)}
+.admin-login-card,.admin-panel-card{
+  background:var(--cream-soft);
+  border:1px solid var(--line);
+  padding:1.5rem;
+  box-shadow:var(--shadow);
+}
+.admin-login-card{max-width:460px;margin:2rem auto}
+.admin-kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin:1.5rem 0}
+.admin-kpi{background:var(--cream-soft);border:1px solid var(--line);padding:1rem}
+.admin-kpi-num{font-family:var(--serif);font-size:2rem;color:var(--green-deep);line-height:1}
+.admin-kpi-lbl{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-top:.35rem}
+.admin-controls{display:flex;gap:.7rem;flex-wrap:wrap;align-items:end;margin:1rem 0 1.5rem}
+.admin-controls .input-block{margin:0;max-width:260px}
+.admin-table-wrap{background:var(--cream-soft);border:1px solid var(--line);overflow:auto;margin-top:1rem}
+.admin-table{width:100%;border-collapse:collapse;font-size:.84rem;min-width:760px}
+.admin-table th,.admin-table td{padding:.65rem .75rem;border-bottom:1px solid var(--line);text-align:left}
+.admin-table th{background:var(--green-light);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--green-deep)}
+.admin-table td.num{text-align:center;font-variant-numeric:tabular-nums;font-family:var(--serif);font-size:1rem}
+.status-ok{color:var(--ok);font-weight:600}
+.status-warn{color:var(--warn);font-weight:600}
+
+/* utilidades */
+.hidden{display:none !important}
+.text-center{text-align:center}
+.spacer{height:2rem}
+hr.rule{border:none;border-top:1px solid var(--line);margin:2.5rem 0}
+
+/* ornamentos */
+.ornament{
+  text-align:center;color:var(--gold);
+  font-size:1.1rem;letter-spacing:1em;margin:1.5rem 0 .5rem;
+  user-select:none;
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<!-- BAR -->
+<header class="bar">
+  <div class="bar-inner">
+    <div class="crest">Club Campestre Pereira</div>
+    <div class="bar-meta">
+      Priorización <strong>2026 — 2028</strong>
+    </div>
+    <button class="admin-top-btn" id="btn-open-admin" type="button">Admin</button>
+  </div>
+</header>
+
+<div class="app">
+<main>
+
+<!-- ============ VIEW 1: BIENVENIDA ============ -->
+<section id="view-welcome" class="view active">
+  <div class="welcome">
+    <span class="label">Comité de Infraestructura · Junta Directiva</span>
+    <h1>Priorización de inversiones en infraestructura <em>2026 — 2028</em></h1>
+    <div class="ornament">· · ·</div>
+    <p class="lead">
+      El Club tiene 25 proyectos de obra estimados en <strong>$13.874 millones</strong> y una capacidad
+      de inversión cercana a <strong>$10.500 millones</strong> para el trienio. Su voto define cuáles
+      proyectos avanzan primero.
+    </p>
+
+    <div class="welcome-stats">
+      <div class="welcome-stat">
+        <div class="welcome-stat-num">25</div>
+        <div class="welcome-stat-lbl">Proyectos a calificar</div>
+      </div>
+      <div class="welcome-stat">
+        <div class="welcome-stat-num">9</div>
+        <div class="welcome-stat-lbl">Criterios por proyecto</div>
+      </div>
+      <div class="welcome-stat">
+        <div class="welcome-stat-num">~25 min</div>
+        <div class="welcome-stat-lbl">Tiempo estimado</div>
+      </div>
+    </div>
+
+    <div class="input-block">
+      <label for="voter-name">Nombre completo</label>
+      <input type="text" id="voter-name" placeholder="Ej. María Rodríguez" autocomplete="name">
+    </div>
+    <div class="input-block">
+      <label for="voter-role">Rol en el Club</label>
+      <select id="voter-role">
+        <option value="">Seleccione…</option>
+        <option value="Junta Directiva">Junta Directiva</option>
+        <option value="Comité de Infraestructura">Comité de Infraestructura</option>
+        <option value="Administración">Administración</option>
+        <option value="Otro">Otro</option>
+      </select>
+    </div>
+
+    <button class="btn" id="btn-start">Comenzar votación</button>
+    <div style="margin-top:2rem;font-size:.8rem;color:var(--ink-soft);max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6">
+      Su progreso se guarda automáticamente en este dispositivo. Puede pausar y continuar en cualquier momento.
+      Al finalizar, descargue el archivo de su voto y envíelo a la administración.
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIEW 2: DASHBOARD ============ -->
+<section id="view-dash" class="view">
+  <div class="dash-head">
+    <div>
+      <span class="label" id="voter-greet">— · —</span>
+      <h2>Sus 25 proyectos</h2>
+      <div class="dash-head-meta">
+        Califique cada proyecto en los <strong>9 criterios</strong>. Los proyectos con marca <strong>✓</strong> están completos.
+      </div>
+      <div class="progress-line"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="dash-actions">
+      <button class="btn-sm chip active" id="chip-all">Todos <strong id="count-all">25</strong></button>
+      <button class="btn-sm chip" id="chip-pending">Pendientes <strong id="count-pending">25</strong></button>
+      <button class="btn-sm chip" id="chip-complete">Completos <strong id="count-complete">0</strong></button>
+      <button class="btn btn-ghost btn-sm" id="btn-criteria-ref">Ver criterios</button>
+      <button class="btn btn-gold btn-sm" id="btn-finish">Finalizar →</button>
+    </div>
+  </div>
+
+  <div class="proj-grid" id="proj-grid"></div>
+
+  <hr class="rule">
+  <div style="text-align:center;color:var(--ink-soft);font-size:.85rem;">
+    El sistema guarda su progreso automáticamente. Puede cerrar y volver más tarde sin perder lo calificado.
+  </div>
+</section>
+
+<!-- ============ VIEW 3: VOTACIÓN POR PROYECTO ============ -->
+<section id="view-vote" class="view">
+  <button class="vote-back" id="btn-back-dash">← Volver al listado</button>
+
+  <div class="vote-head">
+    <div class="vote-title-row">
+      <div>
+        <span class="label" id="vote-num">— · —</span>
+        <h2 id="vote-name">—</h2>
+        <div class="vote-meta">CAPEX estimado: <strong id="vote-capex">—</strong></div>
+      </div>
+      <div class="vote-meta">
+        Criterios: <strong><span id="vote-progress">0</span> / 9</strong>
+      </div>
+    </div>
+  </div>
+
+  <div id="vote-criterios"></div>
+
+  <div class="vote-foot">
+    <button class="btn btn-ghost btn-sm" id="btn-prev-proj">← Proyecto anterior</button>
+    <button class="btn btn-sm" id="btn-next-proj">Siguiente proyecto →</button>
+  </div>
+</section>
+
+<!-- ============ VIEW 4: REVISIÓN Y DESCARGA ============ -->
+<section id="view-review" class="view">
+  <button class="vote-back" id="btn-back-dash-2">← Volver al listado</button>
+
+  <div class="review-summary">
+    <h2>Resumen de su votación</h2>
+    <p id="review-greet">—</p>
+    <div class="review-stats">
+      <div>
+        <div class="review-stat-num" id="rev-completed">0</div>
+        <div class="review-stat-lbl">Proyectos completos</div>
+      </div>
+      <div>
+        <div class="review-stat-num" id="rev-partial">0</div>
+        <div class="review-stat-lbl">Proyectos parciales</div>
+      </div>
+      <div>
+        <div class="review-stat-num" id="rev-pending">0</div>
+        <div class="review-stat-lbl">Sin calificar</div>
+      </div>
+      <div>
+        <div class="review-stat-num" id="rev-avg">—</div>
+        <div class="review-stat-lbl">Puntaje promedio</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="rev-incomplete-warn" class="hidden" style="background:#FBF0E5;border-left:3px solid var(--warn);padding:1rem 1.2rem;margin-bottom:1.5rem;">
+    <strong style="color:var(--warn);font-size:.95rem;">Aún tiene proyectos sin calificar.</strong>
+    <div style="font-size:.88rem;color:var(--ink-soft);margin-top:.3rem">
+      Puede descargar igualmente — los proyectos sin calificar se omitirán del consolidado. Si desea volver a completarlos, regrese al listado.
+    </div>
+  </div>
+
+  <h3 style="margin-bottom:1rem;font-family:var(--serif);font-size:1.4rem">Su ranking personal</h3>
+  <div class="review-table-wrap">
+    <table class="review-table">
+      <thead>
+        <tr><th>#</th><th>Proyecto</th><th>CAPEX</th><th style="text-align:center">Puntaje</th></tr>
+      </thead>
+      <tbody id="rev-table-body"></tbody>
+    </table>
+  </div>
+
+  <div style="display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;margin-top:2.5rem">
+    <button class="btn btn-gold" id="btn-submit-vote">Enviar votación</button>
+    <button class="btn btn-ghost" id="btn-download-csv">⬇ Descargar CSV respaldo</button>
+    <button class="btn btn-ghost" id="btn-download-json">⬇ Descargar JSON respaldo</button>
+    <button class="btn btn-ghost btn-sm" id="btn-reset" style="margin-left:1rem">Empezar de nuevo</button>
+  </div>
+
+  <div style="margin-top:2.5rem;text-align:center;color:var(--ink-soft);font-size:.85rem;line-height:1.7;max-width:560px;margin-left:auto;margin-right:auto">
+    <strong style="color:var(--green-deep)">Cómo enviar su voto:</strong><br>
+    Use <strong>Enviar votación</strong> para guardar las respuestas directamente en la base de datos.
+    Las descargas CSV/JSON quedan únicamente como respaldo opcional.
+  </div>
+</section>
+
+
+
+<!-- ============ VIEW 5: LOGIN ADMIN ============ -->
+<section id="view-admin-login" class="view">
+  <button class="vote-back" id="btn-admin-back-home">← Volver a la encuesta</button>
+  <div class="admin-login-card">
+    <span class="label">Acceso administrativo</span>
+    <h2 style="margin:.35rem 0 1rem">Resultados de priorización</h2>
+    <p style="color:var(--ink-soft);font-size:.92rem;margin-bottom:1.4rem;line-height:1.6">
+      Ingrese con usuario autorizado para consultar resultados consolidados y exportar la matriz.
+    </p>
+    <div class="input-block" style="margin:0 0 1rem;max-width:none">
+      <label for="admin-user">Usuario</label>
+      <input type="text" id="admin-user" autocomplete="username" placeholder="Usuario admin">
+    </div>
+    <div class="input-block" style="margin:0 0 1.5rem;max-width:none">
+      <label for="admin-pass">Contraseña</label>
+      <input type="password" id="admin-pass" autocomplete="current-password" placeholder="Contraseña">
+    </div>
+    <button class="btn" id="btn-admin-login" type="button">Ingresar</button>
+  </div>
+</section>
+
+<!-- ============ VIEW 6: PANEL ADMIN ============ -->
+<section id="view-admin-panel" class="view">
+  <div class="dash-head">
+    <div>
+      <span class="label" id="admin-greet">Panel administrativo</span>
+      <h2>Resultados consolidados</h2>
+      <div class="dash-head-meta">Consulta en línea desde Supabase. No requiere consolidar archivos manualmente.</div>
+    </div>
+    <div class="dash-actions">
+      <button class="btn btn-ghost btn-sm" id="btn-admin-refresh" type="button">Actualizar</button>
+      <button class="btn btn-gold btn-sm" id="btn-admin-export" type="button">Exportar CSV</button>
+      <button class="btn btn-ghost btn-sm" id="btn-admin-logout" type="button">Cerrar sesión</button>
+    </div>
+  </div>
+
+  <div class="admin-kpi-grid">
+    <div class="admin-kpi"><div class="admin-kpi-num" id="admin-total-encuestas">0</div><div class="admin-kpi-lbl">Encuestas enviadas</div></div>
+    <div class="admin-kpi"><div class="admin-kpi-num" id="admin-total-respuestas">0</div><div class="admin-kpi-lbl">Respuestas registradas</div></div>
+    <div class="admin-kpi"><div class="admin-kpi-num" id="admin-promedio-global">—</div><div class="admin-kpi-lbl">Promedio global</div></div>
+    <div class="admin-kpi"><div class="admin-kpi-num" id="admin-proyectos-completos">—</div><div class="admin-kpi-lbl">Proyectos evaluados</div></div>
+  </div>
+
+  <div class="admin-controls">
+    <div class="input-block">
+      <label for="admin-filter-role">Filtrar por rol</label>
+      <select id="admin-filter-role"><option value="">Todos</option></select>
+    </div>
+    <div class="input-block">
+      <label for="admin-search-project">Buscar proyecto</label>
+      <input type="text" id="admin-search-project" placeholder="Ej. Coworking">
+    </div>
+  </div>
+
+  <h3 style="margin-top:1.5rem">Ranking general ponderado</h3>
+  <div class="admin-table-wrap">
+    <table class="admin-table">
+      <thead>
+        <tr><th>#</th><th>Proyecto</th><th>CAPEX</th><th>Votos</th><th>Promedio ponderado</th><th>Promedio simple</th></tr>
+      </thead>
+      <tbody id="admin-ranking-body"></tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top:2rem">Respuestas individuales</h3>
+  <div class="admin-table-wrap">
+    <table class="admin-table">
+      <thead>
+        <tr><th>Fecha</th><th>Nombre</th><th>Rol</th><th>Proyecto</th><th>Criterio</th><th>Peso</th><th>Puntaje</th></tr>
+      </thead>
+      <tbody id="admin-respuestas-body"></tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+</div>
+
+<!-- MODAL: REFERENCIA DE CRITERIOS -->
+<div class="modal-overlay" id="modal-criteria">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">×</button>
+    <span class="label">Referencia rápida</span>
+    <h2>Los 9 criterios y sus pesos</h2>
+    <p class="modal-sub">Cada criterio tiene un peso distinto en el puntaje final ponderado. Califique cada uno de 1 (muy bajo) a 10 (excepcional).</p>
+    <div class="crit-list" id="crit-list-modal"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+// ============ SUPABASE ============
+const SUPABASE_URL = "https://adyerapdqspfckvcxhud.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFkeWVyYXBkcXNwZmNrdmN4aHVkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgxNzU3NDksImV4cCI6MjA5Mzc1MTc0OX0.RUZOa7mNS4uYlqM5du6m0To_00WqHMJt4eqcu7STaAc";
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+let adminSession = { usuario:"", password:"", nombre:"" };
+let adminData = { encuestas:[], respuestas:[] };
+
+// ============ DATOS ============
+const CRITERIOS = [
+  {cat:"ESTRATÉGICA", n:"Relevo generacional y alineación con la visión", w:0.10, d:"¿El proyecto refuerza la identidad del Club a 10 años? ¿Atrae a hijos y nietos de los socios?"},
+  {cat:"ESTRATÉGICA", n:"Activación de inactivos", w:0.10, d:"¿Atrae a quienes hoy no vienen? Foco en 19-25 años y 76+ años, los segmentos más desenganchados."},
+  {cat:"FINANCIERA", n:"Costo total de propiedad vs. valorización", w:0.15, d:"CAPEX + OPEX recurrente vs. valor agregado al activo. Menor costo neto = mejor puntaje."},
+  {cat:"FINANCIERA", n:"Generación / protección de ingresos", w:0.15, d:"¿Genera ingresos nuevos o protege flujos existentes?"},
+  {cat:"EXPERIENCIA", n:"Impacto en socios activos", w:0.15, d:"¿A qué porcentaje de los usuarios reales beneficia? (basado en datos de uso 2025)"},
+  {cat:"EXPERIENCIA", n:"Satisfacción / experiencia", w:0.10, d:"¿Mejora tangiblemente la experiencia diaria del socio?"},
+  {cat:"RIESGO", n:"Urgencia operativa", w:0.10, d:"¿Qué pasa si NO se hace? Riesgo de deterioro, cierre, accidente, sanción."},
+  {cat:"RIESGO", n:"Complejidad / riesgo de ejecución", w:0.05, d:"¿Qué tan difícil es ejecutar? Menor complejidad = mejor puntaje."},
+  {cat:"SOSTENIBILIDAD", n:"Impacto ambiental y ahorro de recursos", w:0.10, d:"¿Reduce consumo de agua o energía? ¿Usa materiales sostenibles?"}
+];
+
+const PROYECTOS = [
+  {k:"Complejo Acuático", n:"Complejo acuático y vestieres niños", capex:2500000000, det:""},
+  {k:"Sede Golf + Tacos", n:"Sede golf + cuarto de tacos + eléctrico", capex:2500000000, det:"500 m²"},
+  {k:"Huellas Campo Golf", n:"Huellas del campo de golf", capex:1589490000, det:"5.046 mtl"},
+  {k:"Sede Taller/Tenis", n:"Sede taller, profesores de tenis y cancheros", capex:1500000000, det:"670 m²"},
+  {k:"Pizzería-Sushi-Rest. Piscina", n:"Pizzería · Sushi · Restaurante piscina", capex:750000000, det:"250 m²"},
+  {k:"Parq. Tenis + Bar Deportivo", n:"Pavimentar parqueadero tenis y bar deportivo", capex:799810000, det:"7.271 m²"},
+  {k:"Capex Operación", n:"Capex operación (mantenimiento esencial)", capex:600000000, det:""},
+  {k:"Reformas a Cocinas", n:"Reformas a cocinas", capex:500000000, det:""},
+  {k:"Bunkers (23 uds)", n:"Bunkers (23 unidades del campo de golf)", capex:444666667, det:""},
+  {k:"Red Media Tensión", n:"Red nueva media tensión (complejo acuático)", capex:350000000, det:""},
+  {k:"Paneles Solares Pádel", n:"Paneles solares Pádel", capex:350000000, det:""},
+  {k:"Transformador Sede Principal", n:"Transformador sede principal", capex:350000000, det:""},
+  {k:"Baterías Sanit. Damas", n:"Baterías sanitarias + vestieres + duchas Damas", capex:220000000, det:""},
+  {k:"Baterías Sanit. Hombres", n:"Baterías sanitarias + vestieres + duchas Hombres", capex:220000000, det:""},
+  {k:"Techo Rialto + Mobiliario", n:"Techo Rialto + mobiliario", capex:200000000, det:""},
+  {k:"Zona Infantil", n:"Zona infantil", capex:150000000, det:""},
+  {k:"Billar", n:"Billar", capex:150000000, det:""},
+  {k:"Remod. Administración", n:"Remodelación administración principal", capex:150000000, det:""},
+  {k:"Parqueaderos Golf (40)", n:"Parqueaderos carros de golf (40 unidades)", capex:140000000, det:""},
+  {k:"Decks Lago Palmas", n:"Decks lago Palmas", capex:80000000, det:""},
+  {k:"Coworking", n:"Zonas de coworking y salas de reuniones", capex:80000000, det:""},
+  {k:"Shut de Basuras", n:"Shut de basuras", capex:80000000, det:""},
+  {k:"Portería", n:"Portería", capex:70000000, det:""},
+  {k:"Biblioteca", n:"Biblioteca", capex:50000000, det:""},
+  {k:"Techo Terraza Hoyo 19", n:"Techo Terraza Hoyo 19", capex:50000000, det:""}
+];
+
+// Justificaciones / contexto por proyecto y criterio (referencia para el votante)
+// Si no hay contexto disponible se muestra placeholder neutro.
+const CONTEXTO = {
+  "Complejo Acuático":[
+    "Familias 36-45 + niños 0-12 = ~23% del uso real. Alto impacto en ese segmento pero no transversal.",
+    "Podría atraer familias con niños 0-5 (28% bajo uso), pero el grupo 36-45 ya es el más activo.",
+    "$2.500M capex + ~$300M/año opex (salvavidas, químicos, energía, mantenimiento). El más costoso del listado.",
+    "Posibilidad de clases de natación, eventos. Pero el alto costo operativo absorbe el potencial.",
+    "Beneficia principalmente a familias con niños: ~23% del uso real.",
+    "Alto 'wow factor' para familias. Genera orgullo y diferenciación frente a otros clubes.",
+    "Proyecto nuevo. No hay deterioro ni riesgo operativo por no hacerlo.",
+    "Proyecto constructivo mayor: permisos, diseño, interventoría, riesgo de sobrecostos. El más complejo.",
+    "Alto consumo de agua y energía. Mitigable con paneles solares y reuso de agua, pero base alta."
+  ],
+  "Capex Operación":[
+    "Mantiene el status quo, no innova.",
+    "No atrae nuevos usuarios, mantiene los actuales.",
+    "$600M capex sin opex adicional. Inversión necesaria de mantenimiento.",
+    "Protege TODOS los flujos de ingresos existentes. Sin mantenimiento la experiencia se degrada.",
+    "Mantiene infraestructura para TODOS los socios. Impacto universal.",
+    "Mantiene la experiencia actual. No mejora pero evita que empeore.",
+    "Mantenimiento esencial. Diferirlo genera deterioro acumulativo y costos mayores después.",
+    "Múltiples proyectos pequeños que requieren coordinación. Cada uno de baja complejidad individual.",
+    "Variable según los sub-proyectos que incluya."
+  ],
+  "Baterías Sanit. Damas":[
+    "Funcional para todos los segmentos femeninos. No es proyecto identitario.",
+    "Mujeres 76+ tienen alto desenganche (32% bajo uso). Vestieres dignos podrían ser factor.",
+    "$220M capex + ~$2M/año opex (absorbido por personal existente). Muy eficiente.",
+    "Protege retención de socios. Vestieres deteriorados son razón de queja frecuente.",
+    "45% de visitantes son mujeres. Todas las edades usan vestieres y duchas. Impacto amplio.",
+    "Altísimo impacto en confort diario. Una de las mejoras más sentidas por los socios.",
+    "Deterioro visible. Tema de higiene y dignidad. Impacto directo en imagen del club.",
+    "Renovación estándar. Algo de complejidad en plomería pero alcance bien definido.",
+    "Oportunidad de instalar griferías de bajo consumo y luminarias LED."
+  ],
+  "Baterías Sanit. Hombres":[
+    "Funcional, no identitario.",
+    "Menor brecha que en mujeres en activación de inactivos.",
+    "$220M + opex mínimo. Muy eficiente.",
+    "Protección de retención de socios masculinos.",
+    "55% de visitantes son hombres. Impacto amplio.",
+    "Alto impacto en confort diario.",
+    "Mismo deterioro que damas, complementario.",
+    "Renovación estándar.",
+    "Oportunidad de griferías de bajo consumo y LED."
+  ],
+  "Zona Infantil":[
+    "Alta atracción para familias jóvenes. Relevo generacional directo.",
+    "Niños 0-5 tienen 28% de bajo uso. Podría atraer familias con niños pequeños.",
+    "$150M + ~$40M/año (monitor, mantenimiento equipos, seguros).",
+    "Bajo ingreso directo. Eventos infantiles ocasionales.",
+    "Niños 0-12 son 9,3% del uso, pero impacto indirecto en padres 36-45 (15% del uso).",
+    "Alto impacto para familias con niños.",
+    "Deseable, no urgente.",
+    "Proyecto estándar, alcance bien definido.",
+    "Oportunidad de materiales reciclados y sombra natural."
+  ],
+  "Billar":[
+    "Audiencia limitada. Uso social/casual, no identitario.",
+    "Podría atraer jóvenes 19-25 (15,5% bajo uso) con oferta social.",
+    "$150M + ~$15M/año. Bajo opex.",
+    "Mínimo ingreso directo.",
+    "Audiencia limitada, principalmente social.",
+    "Moderado. Complemento social.",
+    "No urgente.",
+    "Comprar equipos e instalar. Muy simple.",
+    "Bajo impacto ambiental."
+  ],
+  "Parqueaderos Golf (40)":[
+    "Alineado con crecimiento del segmento golfista.",
+    "Cupos nuevos podrían atraer socios que no jugaban golf por falta de espacio para carro.",
+    "Capex $140M se cubre parcialmente con cuota única de carros nuevos. Buen ROI.",
+    "Cuota única + ingreso mensual recurrente. Payback en meses. Uno de los mejores retornos.",
+    "Golfistas + habilita cupos nuevos. Segmento específico pero con crecimiento.",
+    "Puntos de carga modernos + más cupos mejoran experiencia del golfista.",
+    "Demanda existente. Cada mes sin hacerlo son ingresos no recibidos.",
+    "Construcción simple y bien definida. Bajo riesgo.",
+    "Oportunidad de incluir puntos de carga eléctrica."
+  ],
+  "Huellas Campo Golf":[
+    "Mantiene calidad del campo, atractivo para golfistas serios.",
+    "Cero activación de inactivos.",
+    "$1.589M + ~$2M/año. CAPEX alto pero protege el activo principal.",
+    "Sin ingreso directo. Protege percepción de calidad.",
+    "Solo golfistas, beneficio acotado a hoyos específicos.",
+    "Mejora menor en campo.",
+    "Mantenimiento de campo. Moderado.",
+    "Alcance acotado, contratista especializado.",
+    "Bajo impacto ambiental."
+  ],
+  "Biblioteca":[
+    "Refuerza identidad cultural pero nicho.",
+    "Podría atraer algunos adultos mayores.",
+    "$50M + ~$20M/año (personal, libros).",
+    "Sin ingreso.",
+    "Nicho reducido.",
+    "Agradable para algunos, no transformador.",
+    "No urgente.",
+    "Simple: mobiliario + libros.",
+    "Bajo impacto ambiental."
+  ],
+  "Coworking":[
+    "Alineado con relevo generacional (jóvenes profesionales).",
+    "Apunta a 19-25 y 26-35, los más desenganchados.",
+    "$80M + ~$25M/año (wifi premium, admin, mobiliario).",
+    "Podría tener modelo de cobro por uso. Potencial real.",
+    "26-35 es solo 6% del uso real.",
+    "Relevante para profesionales jóvenes que trabajan remoto.",
+    "No urgente.",
+    "Necesita setup tecnológico pero alcance definido.",
+    "Bajo consumo, oportunidad LEDs."
+  ],
+  "Bunkers (23 uds)":[
+    "Mantiene calidad del campo. Atractivo para golfistas serios.",
+    "Cero activación de inactivos.",
+    "$445M + ~$3M/año. Mantenimiento estándar.",
+    "Sin ingreso directo. Protege calidad del campo.",
+    "Solo golfistas.",
+    "Mejora estándar para golfistas.",
+    "No urgente, pero deterioro acumulativo si se difiere.",
+    "Trabajo estándar de campo.",
+    "Manejo de arenas y drenajes — oportunidad de buenas prácticas."
+  ],
+  "Red Media Tensión":[
+    "Invisible para el socio. Infraestructura de soporte.",
+    "Cero potencial de activación.",
+    "$350M capex + potencial ahorro energético. Sin opex adicional.",
+    "No genera ingresos pero podría reducir costos de energía.",
+    "Invisible para el socio. Infraestructura de soporte.",
+    "El socio no lo ve ni lo siente directamente.",
+    "Riesgo eléctrico/regulatorio. Necesario para soportar complejo acuático y operación futura.",
+    "Requiere contratista especializado. Riesgo de intervención durante obra.",
+    "Habilita modernización energética y mejor eficiencia."
+  ],
+  "Techo Rialto + Mobiliario":[
+    "Renovación estética del salón principal.",
+    "No activa inactivos significativamente.",
+    "$200M + bajo opex.",
+    "Rialto ya funciona para eventos y alquiler. Mejora el atractivo.",
+    "Rialto se usa ampliamente.",
+    "Mejora estética visible. Impacto percibido moderado-alto.",
+    "Verificar estado del techo actual. Posibles filtraciones.",
+    "Renovación directa. Alcance claro, bajo riesgo.",
+    "Oportunidad de iluminación LED."
+  ]
+};
+
+// Para los proyectos sin contexto detallado, placeholder
+const CONTEXTO_DEFAULT = Array(9).fill("").map((_,i) =>
+  "Sin contexto detallado precargado para este criterio. Use su criterio profesional."
+);
+
+// ============ ESTADO ============
+const STORAGE_KEY = 'ccp_priorizacion_2026_v1';
+let state = {
+  voter:{name:"",role:""},
+  scores:{}, // { "Proyecto":{0:8,1:5,...} }
+  currentProj:null,
+  filter:'all',
+  startedAt:null,
+  lastSaved:null
+};
+
+function load(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(raw){
+      const s = JSON.parse(raw);
+      state = {...state, ...s};
+    }
+  }catch(e){console.warn('No se pudo cargar el estado',e)}
+}
+function save(){
+  state.lastSaved = new Date().toISOString();
+  try{localStorage.setItem(STORAGE_KEY, JSON.stringify(state));}
+  catch(e){console.warn('No se pudo guardar',e)}
+}
+
+// ============ HELPERS ============
+const $ = (id)=>document.getElementById(id);
+const formatCOP = n => '$ ' + Math.round(n/1000000).toLocaleString('es-CO') + ' M';
+const formatCOPfull = n => '$ ' + Math.round(n).toLocaleString('es-CO');
+
+function showToast(msg,type=''){
+  const t = $('toast');
+  t.textContent = msg;
+  t.className = 'toast show ' + type;
+  setTimeout(()=>{t.className='toast '+type;}, 2400);
+}
+
+function showView(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  $(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function projectStatus(projKey){
+  const s = state.scores[projKey] || {};
+  const filled = Object.keys(s).filter(k => s[k] != null).length;
+  if(filled === 0) return {state:'pending', filled:0};
+  if(filled === CRITERIOS.length) return {state:'complete', filled:filled};
+  return {state:'partial', filled:filled};
+}
+
+function weightedScore(projKey){
+  const s = state.scores[projKey];
+  if(!s) return null;
+  const filled = Object.keys(s).filter(k => s[k] != null);
+  if(filled.length === 0) return null;
+  // Si está parcial, usamos solo los que tiene, ponderados por sus pesos
+  let totalScore = 0;
+  let totalWeight = 0;
+  CRITERIOS.forEach((c,i)=>{
+    if(s[i] != null){
+      totalScore += s[i] * c.w;
+      totalWeight += c.w;
+    }
+  });
+  return totalWeight > 0 ? totalScore/totalWeight : null;
+}
+
+// ============ RENDER ============
+function renderCriteriaModal(){
+  const html = CRITERIOS.map((c,i)=>`
+    <div class="crit-list-item">
+      <div class="crit-list-num">${i+1}</div>
+      <div>
+        <div class="crit-list-name">${c.n}</div>
+        <div class="crit-list-desc">${c.d}</div>
+      </div>
+      <div class="crit-list-w">${(c.w*100).toFixed(0)}%</div>
+    </div>
+  `).join('');
+  $('crit-list-modal').innerHTML = html;
+}
+
+function renderDash(){
+  const grid = $('proj-grid');
+  let counts = {all:PROYECTOS.length, pending:0, partial:0, complete:0};
+  PROYECTOS.forEach(p=>{
+    const st = projectStatus(p.k);
+    if(st.state==='pending') counts.pending++;
+    else if(st.state==='partial') counts.partial++;
+    else counts.complete++;
+  });
+  $('count-all').textContent = counts.all;
+  $('count-pending').textContent = counts.pending + counts.partial;
+  $('count-complete').textContent = counts.complete;
+
+  const filter = state.filter;
+  const visible = PROYECTOS.filter(p=>{
+    const st = projectStatus(p.k);
+    if(filter==='all') return true;
+    if(filter==='pending') return st.state!=='complete';
+    if(filter==='complete') return st.state==='complete';
+  });
+
+  if(visible.length===0){
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:3rem 1rem;color:var(--ink-soft)">
+      <div style="font-family:var(--serif);font-size:1.4rem;color:var(--green-deep);margin-bottom:.5rem">No hay proyectos en esta vista.</div>
+      <div>Cambie el filtro para ver los demás.</div>
+    </div>`;
+    return;
+  }
+
+  grid.innerHTML = visible.map((p,idx)=>{
+    const realIdx = PROYECTOS.findIndex(x=>x.k===p.k);
+    const st = projectStatus(p.k);
+    const pct = (st.filled/CRITERIOS.length)*100;
+    const cls = st.state==='complete' ? 'complete' : (st.state==='partial' ? 'partial' : '');
+    const fillCls = st.state==='complete' ? 'full' : '';
+    const num = String(realIdx+1).padStart(2,'0');
+    const detSuffix = p.det ? ` · <span style="color:var(--gold)">${p.det}</span>` : '';
+    return `<article class="proj-card ${cls}" data-key="${p.k}">
+      <div class="proj-num">№ ${num}</div>
+      <div class="proj-name">${p.n}</div>
+      <div class="proj-capex"><strong>${formatCOP(p.capex)}</strong>${detSuffix}</div>
+      <div class="proj-mini-bar"><div class="proj-mini-fill ${fillCls}" style="width:${pct}%"></div></div>
+      <div class="proj-status">
+        <span>${st.filled}/${CRITERIOS.length} criterios</span>
+        <span>${st.state==='complete'?'Completo':st.state==='partial'?'En progreso':'Sin iniciar'}</span>
+      </div>
+    </article>`;
+  }).join('');
+
+  grid.querySelectorAll('.proj-card').forEach(card=>{
+    card.addEventListener('click',()=>openVote(card.dataset.key));
+  });
+
+  // progreso global
+  const totalCrits = PROYECTOS.length * CRITERIOS.length;
+  let filledCrits = 0;
+  PROYECTOS.forEach(p=>{ filledCrits += projectStatus(p.k).filled; });
+  $('progress-fill').style.width = (filledCrits/totalCrits*100) + '%';
+}
+
+function renderVote(){
+  const projKey = state.currentProj;
+  const idx = PROYECTOS.findIndex(p=>p.k===projKey);
+  const proj = PROYECTOS[idx];
+  if(!proj) return;
+  const num = String(idx+1).padStart(2,'0');
+  $('vote-num').textContent = `Proyecto ${num} de ${PROYECTOS.length}`;
+  $('vote-name').textContent = proj.n;
+  $('vote-capex').textContent = formatCOPfull(proj.capex) + (proj.det ? ` · ${proj.det}` : '');
+
+  const scores = state.scores[projKey] || {};
+  const ctx = CONTEXTO[projKey] || CONTEXTO_DEFAULT;
+
+  const html = CRITERIOS.map((c,i)=>{
+    const score = scores[i];
+    const answered = score != null;
+    const ctxLine = ctx[i] || "";
+    const isEmpty = !ctxLine || ctxLine.startsWith("Sin contexto");
+    const ctxClass = isEmpty ? 'crit-context empty' : 'crit-context';
+    const buttons = Array.from({length:10}, (_,n)=>{
+      const v = n+1;
+      const sel = score === v ? 'selected':'';
+      return `<button type="button" class="score-btn ${sel}" data-crit="${i}" data-val="${v}">${v}</button>`;
+    }).join('');
+    return `<div class="crit-block ${answered?'answered':''}" data-crit-idx="${i}">
+      <div class="crit-head">
+        <div>
+          <div class="crit-cat">${c.cat}</div>
+          <div class="crit-name">${i+1}. ${c.n}</div>
+        </div>
+        <div class="crit-weight">Peso ${(c.w*100).toFixed(0)}%</div>
+      </div>
+      <div class="crit-desc">${c.d}</div>
+      ${ctxLine ? `<div class="${ctxClass}">${isEmpty?'Sin contexto detallado precargado. Califique con su criterio profesional.':ctxLine}</div>` : ''}
+      <div class="scale">${buttons}</div>
+      <div class="scale-legend">
+        <span>1 — Muy bajo / Pésimo</span>
+        <span>5 — Medio</span>
+        <span>10 — Excepcional / Crítico</span>
+      </div>
+    </div>`;
+  }).join('');
+  $('vote-criterios').innerHTML = html;
+
+  // Bindeo botones
+  $('vote-criterios').querySelectorAll('.score-btn').forEach(btn=>{
+    btn.addEventListener('click',(e)=>{
+      const ci = parseInt(btn.dataset.crit);
+      const v = parseInt(btn.dataset.val);
+      if(!state.scores[projKey]) state.scores[projKey] = {};
+      // Toggle: si pulsa el mismo, lo quita
+      if(state.scores[projKey][ci] === v){
+        delete state.scores[projKey][ci];
+      }else{
+        state.scores[projKey][ci] = v;
+      }
+      save();
+      // Re-render solo este bloque
+      const block = btn.closest('.crit-block');
+      block.querySelectorAll('.score-btn').forEach(b=>b.classList.remove('selected'));
+      if(state.scores[projKey][ci] != null){
+        block.querySelector(`.score-btn[data-val="${state.scores[projKey][ci]}"]`).classList.add('selected');
+        block.classList.add('answered');
+      }else{
+        block.classList.remove('answered');
+      }
+      updateVoteProgress();
+    });
+  });
+
+  updateVoteProgress();
+  // Botones prev/next
+  $('btn-prev-proj').disabled = idx===0;
+  $('btn-prev-proj').style.opacity = idx===0 ? .4 : 1;
+  if(idx === PROYECTOS.length-1){
+    $('btn-next-proj').textContent = 'Volver al listado →';
+  }else{
+    $('btn-next-proj').textContent = 'Siguiente proyecto →';
+  }
+}
+
+function updateVoteProgress(){
+  const projKey = state.currentProj;
+  const st = projectStatus(projKey);
+  $('vote-progress').textContent = st.filled;
+}
+
+function renderReview(){
+  const v = state.voter;
+  $('review-greet').textContent = `${v.name || 'Anónimo'} — ${v.role || 'Sin rol'} · Resumen al ${new Date().toLocaleDateString('es-CO',{day:'numeric',month:'long',year:'numeric'})}`;
+
+  let completed=0, partial=0, pending=0;
+  let allScores = [];
+  PROYECTOS.forEach(p=>{
+    const st = projectStatus(p.k);
+    if(st.state==='complete') completed++;
+    else if(st.state==='partial') partial++;
+    else pending++;
+    const s = state.scores[p.k];
+    if(s){
+      Object.values(s).forEach(v=>{ if(v!=null) allScores.push(v); });
+    }
+  });
+
+  $('rev-completed').textContent = completed;
+  $('rev-partial').textContent = partial;
+  $('rev-pending').textContent = pending;
+  const avg = allScores.length>0 ? (allScores.reduce((a,b)=>a+b,0)/allScores.length) : null;
+  $('rev-avg').textContent = avg!=null ? avg.toFixed(2) : '—';
+
+  if(pending>0 || partial>0){
+    $('rev-incomplete-warn').classList.remove('hidden');
+  }else{
+    $('rev-incomplete-warn').classList.add('hidden');
+  }
+
+  // Tabla ordenada por puntaje ponderado descendente
+  const ranked = PROYECTOS.map(p=>{
+    const ws = weightedScore(p.k);
+    const st = projectStatus(p.k);
+    return {p, ws, st};
+  }).sort((a,b)=>{
+    if(a.ws==null && b.ws==null) return 0;
+    if(a.ws==null) return 1;
+    if(b.ws==null) return -1;
+    return b.ws - a.ws;
+  });
+
+  $('rev-table-body').innerHTML = ranked.map((r,i)=>{
+    const ws = r.ws;
+    const wsTxt = ws!=null ? ws.toFixed(2) : '—';
+    const incompleteTag = r.st.state!=='complete'
+      ? `<span class="pinc"> · ${r.st.state==='pending'?'Sin calificar':r.st.filled+'/9'}</span>` : '';
+    return `<tr>
+      <td class="num">${i+1}</td>
+      <td class="pname">${r.p.n}${incompleteTag}</td>
+      <td class="num">${formatCOP(r.p.capex)}</td>
+      <td class="num">${wsTxt}</td>
+    </tr>`;
+  }).join('');
+}
+
+
+
+// ============ SUPABASE: ENVÍO Y ADMIN ============
+function validateVoteBeforeSubmit(){
+  const faltantes = [];
+  PROYECTOS.forEach(p=>{
+    const st = projectStatus(p.k);
+    if(st.state !== 'complete') faltantes.push(`${p.n} (${st.filled}/9)`);
+  });
+  return faltantes;
+}
+
+async function submitVoteToSupabase(){
+  const v = state.voter;
+  if(!v.name || !v.role){
+    showToast('Debe ingresar nombre y rol antes de enviar.', 'warn');
+    showView('view-welcome');
+    return;
+  }
+
+  const faltantes = validateVoteBeforeSubmit();
+  if(faltantes.length){
+    const continuar = confirm(`Tiene ${faltantes.length} proyectos incompletos. ¿Desea enviar la votación de todos modos?`);
+    if(!continuar) return;
+  }
+
+  const btn = $('btn-submit-vote');
+  const oldText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+
+  try{
+    const { data: encuesta, error: encuestaError } = await supabaseClient
+      .from('encuestas_priorizacion')
+      .insert({
+        nombre: v.name,
+        rol: v.role,
+        estado: faltantes.length ? 'parcial' : 'completada',
+        user_agent: navigator.userAgent
+      })
+      .select('id')
+      .single();
+
+    if(encuestaError) throw encuestaError;
+
+    const rows = [];
+    PROYECTOS.forEach(p=>{
+      CRITERIOS.forEach((c,i)=>{
+        const puntaje = state.scores[p.k]?.[i];
+        if(puntaje != null){
+          rows.push({
+            encuesta_id: encuesta.id,
+            proyecto_clave: p.k,
+            proyecto: p.n,
+            capex: p.capex,
+            criterio_num: i + 1,
+            criterio: c.n,
+            categoria: c.cat,
+            peso: c.w,
+            puntaje: puntaje
+          });
+        }
+      });
+    });
+
+    if(!rows.length) throw new Error('No hay respuestas para guardar.');
+
+    const { error: respuestasError } = await supabaseClient
+      .from('respuestas_priorizacion')
+      .insert(rows);
+
+    if(respuestasError) throw respuestasError;
+
+    localStorage.setItem(STORAGE_KEY + '_submitted', encuesta.id);
+    showToast('Votación enviada correctamente a Supabase.');
+    btn.textContent = 'Votación enviada';
+  }catch(error){
+    console.error(error);
+    showToast('No se pudo enviar la votación: ' + (error.message || 'Error desconocido'), 'warn');
+    btn.disabled = false;
+    btn.textContent = oldText;
+  }
+}
+
+async function loginAdmin(){
+  const usuario = $('admin-user').value.trim();
+  const password = $('admin-pass').value;
+  if(!usuario || !password){
+    showToast('Ingrese usuario y contraseña.', 'warn');
+    return;
+  }
+
+  const btn = $('btn-admin-login');
+  const oldText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Validando...';
+
+  try{
+    const { data, error } = await supabaseClient.rpc('validar_admin_priorizacion', {
+      p_usuario: usuario,
+      p_password: password
+    });
+    if(error) throw error;
+    const row = Array.isArray(data) ? data[0] : data;
+    if(!row || row.ok !== true){
+      showToast('Credenciales inválidas.', 'warn');
+      return;
+    }
+    adminSession = { usuario, password, nombre: row.nombre || usuario };
+    $('admin-greet').textContent = `Panel administrativo · ${adminSession.nombre}`;
+    await loadAdminResults();
+    showView('view-admin-panel');
+  }catch(error){
+    console.error(error);
+    showToast('No se pudo iniciar sesión administrativa.', 'warn');
+  }finally{
+    btn.disabled = false;
+    btn.textContent = oldText;
+  }
+}
+
+async function loadAdminResults(){
+  if(!adminSession.usuario || !adminSession.password){
+    showView('view-admin-login');
+    return;
+  }
+  try{
+    const { data, error } = await supabaseClient.rpc('obtener_resultados_priorizacion', {
+      p_usuario: adminSession.usuario,
+      p_password: adminSession.password
+    });
+    if(error) throw error;
+    adminData = {
+      encuestas: data?.encuestas || [],
+      respuestas: data?.respuestas || []
+    };
+    renderAdminFilters();
+    renderAdminPanel();
+    showToast('Resultados actualizados.');
+  }catch(error){
+    console.error(error);
+    showToast('No se pudieron cargar los resultados.', 'warn');
+  }
+}
+
+function getFilteredAdminRows(){
+  const role = $('admin-filter-role')?.value || '';
+  const search = ($('admin-search-project')?.value || '').trim().toLowerCase();
+  const encuestaById = new Map(adminData.encuestas.map(e=>[e.id,e]));
+  return adminData.respuestas.map(r=>({ ...r, encuesta: encuestaById.get(r.encuesta_id) || {} }))
+    .filter(r=> !role || r.encuesta.rol === role)
+    .filter(r=> !search || String(r.proyecto||'').toLowerCase().includes(search));
+}
+
+function renderAdminFilters(){
+  const sel = $('admin-filter-role');
+  if(!sel) return;
+  const current = sel.value;
+  const roles = [...new Set(adminData.encuestas.map(e=>e.rol).filter(Boolean))].sort();
+  sel.innerHTML = '<option value="">Todos</option>' + roles.map(r=>`<option value="${r}">${r}</option>`).join('');
+  if(roles.includes(current)) sel.value = current;
+}
+
+function renderAdminPanel(){
+  const rows = getFilteredAdminRows();
+  const encuestasFiltradasIds = new Set(rows.map(r=>r.encuesta_id));
+  const puntajes = rows.map(r=>Number(r.puntaje)).filter(n=>!Number.isNaN(n));
+  $('admin-total-encuestas').textContent = encuestasFiltradasIds.size || adminData.encuestas.length;
+  $('admin-total-respuestas').textContent = rows.length;
+  $('admin-promedio-global').textContent = puntajes.length ? (puntajes.reduce((a,b)=>a+b,0)/puntajes.length).toFixed(2) : '—';
+  $('admin-proyectos-completos').textContent = new Set(rows.map(r=>r.proyecto_clave)).size;
+
+  const grouped = new Map();
+  rows.forEach(r=>{
+    if(!grouped.has(r.proyecto_clave)) grouped.set(r.proyecto_clave, { proyecto:r.proyecto, capex:r.capex, respuestas:[] });
+    grouped.get(r.proyecto_clave).respuestas.push(r);
+  });
+
+  const ranking = [...grouped.values()].map(g=>{
+    const byEncuesta = new Map();
+    g.respuestas.forEach(r=>{
+      if(!byEncuesta.has(r.encuesta_id)) byEncuesta.set(r.encuesta_id, []);
+      byEncuesta.get(r.encuesta_id).push(r);
+    });
+    const ponderados = [...byEncuesta.values()].map(arr=>{
+      let total=0, peso=0;
+      arr.forEach(r=>{ total += Number(r.puntaje) * Number(r.peso); peso += Number(r.peso); });
+      return peso ? total/peso : null;
+    }).filter(v=>v != null);
+    const simple = g.respuestas.map(r=>Number(r.puntaje)).filter(n=>!Number.isNaN(n));
+    return {
+      proyecto:g.proyecto,
+      capex:g.capex,
+      votos: byEncuesta.size,
+      ponderado: ponderados.length ? ponderados.reduce((a,b)=>a+b,0)/ponderados.length : null,
+      simple: simple.length ? simple.reduce((a,b)=>a+b,0)/simple.length : null
+    };
+  }).sort((a,b)=>(b.ponderado || 0) - (a.ponderado || 0));
+
+  $('admin-ranking-body').innerHTML = ranking.map((r,i)=>`
+    <tr>
+      <td class="num">${i+1}</td>
+      <td><strong style="color:var(--green-deep)">${r.proyecto}</strong></td>
+      <td class="num">${formatCOP(Number(r.capex||0))}</td>
+      <td class="num">${r.votos}</td>
+      <td class="num"><strong>${r.ponderado != null ? r.ponderado.toFixed(2) : '—'}</strong></td>
+      <td class="num">${r.simple != null ? r.simple.toFixed(2) : '—'}</td>
+    </tr>
+  `).join('') || `<tr><td colspan="6" style="text-align:center;color:var(--ink-soft);padding:2rem">Sin resultados para mostrar.</td></tr>`;
+
+  const latest = rows.slice().sort((a,b)=>new Date(b.created_at)-new Date(a.created_at)).slice(0,500);
+  $('admin-respuestas-body').innerHTML = latest.map(r=>`
+    <tr>
+      <td>${new Date(r.created_at).toLocaleDateString('es-CO')}</td>
+      <td>${r.encuesta.nombre || '—'}</td>
+      <td>${r.encuesta.rol || '—'}</td>
+      <td>${r.proyecto}</td>
+      <td>${r.criterio_num}. ${r.criterio}</td>
+      <td class="num">${Number(r.peso).toFixed(2)}</td>
+      <td class="num"><strong>${r.puntaje}</strong></td>
+    </tr>
+  `).join('') || `<tr><td colspan="7" style="text-align:center;color:var(--ink-soft);padding:2rem">Sin respuestas registradas.</td></tr>`;
+}
+
+function exportAdminCSV(){
+  const rows = getFilteredAdminRows();
+  const lines = [];
+  lines.push('Fecha,Nombre,Rol,Proyecto,CAPEX,Criterio_n,Criterio,Categoria,Peso,Puntaje');
+  rows.forEach(r=>{
+    const clean = v => `"${String(v ?? '').replace(/"/g,'""')}"`;
+    lines.push([
+      clean(new Date(r.created_at).toLocaleString('es-CO')),
+      clean(r.encuesta.nombre),
+      clean(r.encuesta.rol),
+      clean(r.proyecto),
+      clean(r.capex),
+      clean(r.criterio_num),
+      clean(r.criterio),
+      clean(r.categoria),
+      clean(r.peso),
+      clean(r.puntaje)
+    ].join(','));
+  });
+  const blob = new Blob(['﻿' + lines.join('\n')], {type:'text/csv;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `Resultados_Priorizacion_${new Date().toISOString().slice(0,10)}.csv`;
+  document.body.appendChild(a); a.click(); a.remove();
+  URL.revokeObjectURL(a.href);
+  showToast('CSV administrativo exportado.');
+}
+
+// ============ NAVEGACIÓN ============
+function openVote(projKey){
+  state.currentProj = projKey;
+  save();
+  renderVote();
+  showView('view-vote');
+}
+
+function nextProject(){
+  const idx = PROYECTOS.findIndex(p=>p.k===state.currentProj);
+  if(idx === PROYECTOS.length-1){
+    // Última: volver al listado
+    showView('view-dash');
+    renderDash();
+  }else{
+    state.currentProj = PROYECTOS[idx+1].k;
+    save();
+    renderVote();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+}
+function prevProject(){
+  const idx = PROYECTOS.findIndex(p=>p.k===state.currentProj);
+  if(idx > 0){
+    state.currentProj = PROYECTOS[idx-1].k;
+    save();
+    renderVote();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+}
+
+// ============ DESCARGA ============
+function downloadCSV(){
+  const v = state.voter;
+  const fecha = new Date().toISOString().slice(0,10);
+  const safeName = (v.name || 'anon').replace(/[^a-zA-Z0-9_-]/g,'_');
+  const lines = [];
+  // Header bloque info
+  lines.push(`# Voto Priorización Inversiones 2026-2028 - Club Campestre Pereira`);
+  lines.push(`# Votante,${v.name||''}`);
+  lines.push(`# Rol,${v.role||''}`);
+  lines.push(`# Fecha,${fecha}`);
+  lines.push(``);
+  lines.push(`Proyecto,Criterio_n,Criterio,Peso,Puntaje`);
+  PROYECTOS.forEach(p=>{
+    CRITERIOS.forEach((c,i)=>{
+      const score = state.scores[p.k]?.[i];
+      const val = score != null ? score : '';
+      // Escapar comas en nombres
+      const projN = p.n.includes(',') ? `"${p.n}"` : p.n;
+      const critN = c.n.includes(',') ? `"${c.n}"` : c.n;
+      lines.push(`${projN},${i+1},${critN},${(c.w).toFixed(2)},${val}`);
+    });
+  });
+  const csv = '\uFEFF' + lines.join('\n'); // BOM para Excel
+  const blob = new Blob([csv], {type:'text/csv;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `Voto_${safeName}_${fecha}.csv`;
+  document.body.appendChild(a); a.click(); a.remove();
+  URL.revokeObjectURL(a.href);
+  showToast('CSV descargado. Envíelo por correo a la Gerencia Administrativa.');
+}
+
+function downloadJSON(){
+  const v = state.voter;
+  const fecha = new Date().toISOString().slice(0,10);
+  const safeName = (v.name || 'anon').replace(/[^a-zA-Z0-9_-]/g,'_');
+  const payload = {
+    meta:{
+      voto:'Priorización Inversiones 2026-2028',
+      club:'Club Campestre de Pereira',
+      votante:v.name,
+      rol:v.role,
+      fecha:fecha,
+      iniciado:state.startedAt,
+      ultimo_guardado:state.lastSaved
+    },
+    criterios: CRITERIOS,
+    proyectos: PROYECTOS.map(p=>({
+      clave:p.k, nombre:p.n, capex:p.capex,
+      puntajes: state.scores[p.k] || {}
+    }))
+  };
+  const blob = new Blob([JSON.stringify(payload,null,2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `Respaldo_${safeName}_${fecha}.json`;
+  document.body.appendChild(a); a.click(); a.remove();
+  URL.revokeObjectURL(a.href);
+  showToast('Respaldo JSON descargado.');
+}
+
+function resetAll(){
+  if(!confirm('¿Está seguro? Esto borrará TODOS sus puntajes y no se puede deshacer.')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  state = {voter:{name:"",role:""},scores:{},currentProj:null,filter:'all',startedAt:null,lastSaved:null};
+  $('voter-name').value = '';
+  $('voter-role').value = '';
+  showView('view-welcome');
+  showToast('Votación reiniciada.');
+}
+
+// ============ INIT ============
+function init(){
+  load();
+  renderCriteriaModal();
+
+  // Si ya hay votante, saltar bienvenida
+  if(state.voter && state.voter.name && state.voter.name.trim()){
+    $('voter-name').value = state.voter.name;
+    $('voter-role').value = state.voter.role || '';
+    $('voter-greet').textContent = `${state.voter.name} · ${state.voter.role||'—'}`;
+    showView('view-dash');
+    renderDash();
+  }
+
+  $('btn-start').addEventListener('click',()=>{
+    const name = $('voter-name').value.trim();
+    const role = $('voter-role').value;
+    if(!name){
+      showToast('Por favor escriba su nombre completo.','warn');
+      $('voter-name').focus();
+      return;
+    }
+    if(!role){
+      showToast('Por favor seleccione su rol.','warn');
+      $('voter-role').focus();
+      return;
+    }
+    state.voter = {name, role};
+    if(!state.startedAt) state.startedAt = new Date().toISOString();
+    save();
+    $('voter-greet').textContent = `${name} · ${role}`;
+    renderDash();
+    showView('view-dash');
+  });
+
+  $('btn-back-dash').addEventListener('click',()=>{
+    renderDash();
+    showView('view-dash');
+  });
+  $('btn-back-dash-2').addEventListener('click',()=>{
+    renderDash();
+    showView('view-dash');
+  });
+  $('btn-prev-proj').addEventListener('click',prevProject);
+  $('btn-next-proj').addEventListener('click',nextProject);
+
+  $('btn-finish').addEventListener('click',()=>{
+    renderReview();
+    showView('view-review');
+  });
+
+  // Filtros
+  ['all','pending','complete'].forEach(f=>{
+    $('chip-'+f).addEventListener('click',()=>{
+      state.filter = f;
+      document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+      $('chip-'+f).classList.add('active');
+      renderDash();
+    });
+  });
+
+  // Modal criterios
+  $('btn-criteria-ref').addEventListener('click',()=>$('modal-criteria').classList.add('active'));
+  $('modal-close').addEventListener('click',()=>$('modal-criteria').classList.remove('active'));
+  $('modal-criteria').addEventListener('click',(e)=>{
+    if(e.target.id==='modal-criteria') $('modal-criteria').classList.remove('active');
+  });
+
+  // Descargas
+  $('btn-submit-vote').addEventListener('click',submitVoteToSupabase);
+  $('btn-download-csv').addEventListener('click',downloadCSV);
+  $('btn-download-json').addEventListener('click',downloadJSON);
+  $('btn-reset').addEventListener('click',resetAll);
+
+  // Admin
+  $('btn-open-admin').addEventListener('click',()=>showView('view-admin-login'));
+  $('btn-admin-back-home').addEventListener('click',()=>{ renderDash(); showView(state.voter?.name ? 'view-dash' : 'view-welcome'); });
+  $('btn-admin-login').addEventListener('click',loginAdmin);
+  $('admin-pass').addEventListener('keydown',(e)=>{ if(e.key==='Enter') loginAdmin(); });
+  $('btn-admin-refresh').addEventListener('click',loadAdminResults);
+  $('btn-admin-export').addEventListener('click',exportAdminCSV);
+  $('btn-admin-logout').addEventListener('click',()=>{ adminSession={usuario:'',password:'',nombre:''}; adminData={encuestas:[],respuestas:[]}; $('admin-pass').value=''; showView('view-admin-login'); });
+  $('admin-filter-role').addEventListener('change',renderAdminPanel);
+  $('admin-search-project').addEventListener('input',renderAdminPanel);
+
+  // Atajos teclado en pantalla votación
+  document.addEventListener('keydown',(e)=>{
+    if(!$('view-vote').classList.contains('active')) return;
+    if(e.key === 'ArrowRight'){ nextProject(); }
+    else if(e.key === 'ArrowLeft'){ prevProject(); }
+  });
+
+  // Auto-guardar al cerrar
+  window.addEventListener('beforeunload',save);
+}
+
+init();
+</script>
+</body>
+</html>
