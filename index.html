@@ -807,7 +807,7 @@ let adminData = { encuestas:[], respuestas:[] };
 const CRITERIOS = [
   {cat:"ESTRATÉGICA", n:"Relevo generacional y alineación con la visión", w:0.10, d:"¿El proyecto refuerza la identidad del Club a 10 años? ¿Atrae a hijos y nietos de los socios?"},
   {cat:"ESTRATÉGICA", n:"Activación de inactivos", w:0.10, d:"¿Atrae a quienes hoy no vienen? Foco en 19-25 años y 76+ años, los segmentos más desenganchados."},
-  {cat:"FINANCIERA", n:"Costo total de propiedad vs. valorización", w:0.15, d:"CAPEX + OPEX recurrente vs. valor agregado al activo. Menor costo neto = mejor puntaje."},
+  {cat:"FINANCIERA", n:"Costo total de propiedad vs valorización", w:0.15, d:"CAPEX + OPEX recurrente vs. valor agregado al activo. Menor costo neto = mejor puntaje."},
   {cat:"FINANCIERA", n:"Generación / protección de ingresos", w:0.15, d:"¿Genera ingresos nuevos o protege flujos existentes?"},
   {cat:"EXPERIENCIA", n:"Impacto en socios activos", w:0.15, d:"¿A qué porcentaje de los usuarios reales beneficia? (basado en datos de uso 2025)"},
   {cat:"EXPERIENCIA", n:"Satisfacción / experiencia", w:0.10, d:"¿Mejora tangiblemente la experiencia diaria del socio?"},
@@ -1027,6 +1027,26 @@ function save(){
 const $ = (id)=>document.getElementById(id);
 const formatCOP = n => '$ ' + Math.round(n/1000000).toLocaleString('es-CO') + ' M';
 const formatCOPfull = n => '$ ' + Math.round(n).toLocaleString('es-CO');
+
+function normalizarTexto(valor){
+  return String(valor || "")
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+function obtenerPesoVoto(nombre){
+  const n = normalizarTexto(nombre);
+
+  const votantesPesoDoble = [
+    "leonardo ronderos",
+    "felipe megia",
+    "felipe mejia"
+  ];
+
+  return votantesPesoDoble.includes(n) ? 2 : 1;
+}
 
 function showToast(msg,type=''){
   const t = $('toast');
@@ -1321,7 +1341,8 @@ async function submitVoteToSupabase(){
         nombre: v.name,
         rol: v.role,
         estado: faltantes.length ? 'parcial' : 'completada',
-        user_agent: navigator.userAgent
+        user_agent: navigator.userAgent,
+        peso_voto: obtenerPesoVoto(v.name)
       })
       .select('id')
       .single();
@@ -1469,7 +1490,11 @@ function renderAdminPanel(){
     });
     const ponderados = [...byEncuesta.values()].map(arr=>{
       let total=0, peso=0;
-      arr.forEach(r=>{ total += Number(r.puntaje) * Number(r.peso); peso += Number(r.peso); });
+      arr.forEach(r=>{
+        const pesoVoto = Number(r.encuesta?.peso_voto || 1);
+        total += Number(r.puntaje) * Number(r.peso) * pesoVoto;
+        peso += Number(r.peso) * pesoVoto;
+      });
       return peso ? total/peso : null;
     }).filter(v=>v != null);
     const simple = g.respuestas.map(r=>Number(r.puntaje)).filter(n=>!Number.isNaN(n));
