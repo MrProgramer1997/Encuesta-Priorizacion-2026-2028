@@ -544,14 +544,14 @@ hr.rule{border:none;border-top:1px solid var(--line);margin:2.5rem 0}
     <h1>Priorización de inversiones en infraestructura <em>2026 — 2028</em></h1>
     <div class="ornament">· · ·</div>
     <p class="lead">
-      El Club tiene 25 proyectos de obra estimados en <strong>$13.874 millones</strong> y una capacidad
+      El Club tiene 16 proyectos de obra estimados en <strong>$13.704 millones</strong> y una capacidad
       de inversión cercana a <strong>$10.500 millones</strong> para el trienio. Su voto define cuáles
       proyectos avanzan primero.
     </p>
 
     <div class="welcome-stats">
       <div class="welcome-stat">
-        <div class="welcome-stat-num">25</div>
+        <div class="welcome-stat-num">16</div>
         <div class="welcome-stat-lbl">Proyectos a calificar</div>
       </div>
       <div class="welcome-stat">
@@ -592,15 +592,15 @@ hr.rule{border:none;border-top:1px solid var(--line);margin:2.5rem 0}
   <div class="dash-head">
     <div>
       <span class="label" id="voter-greet">— · —</span>
-      <h2>Sus 25 proyectos</h2>
+      <h2>Sus 16 proyectos</h2>
       <div class="dash-head-meta">
         Califique cada proyecto en los <strong>9 criterios</strong>. Los proyectos con marca <strong>✓</strong> están completos.
       </div>
       <div class="progress-line"><div class="progress-fill" id="progress-fill"></div></div>
     </div>
     <div class="dash-actions">
-      <button class="btn-sm chip active" id="chip-all">Todos <strong id="count-all">25</strong></button>
-      <button class="btn-sm chip" id="chip-pending">Pendientes <strong id="count-pending">25</strong></button>
+      <button class="btn-sm chip active" id="chip-all">Todos <strong id="count-all">16</strong></button>
+      <button class="btn-sm chip" id="chip-pending">Pendientes <strong id="count-pending">16</strong></button>
       <button class="btn-sm chip" id="chip-complete">Completos <strong id="count-complete">0</strong></button>
       <button class="btn btn-ghost btn-sm" id="btn-criteria-ref">Ver criterios</button>
       <button class="btn btn-gold btn-sm" id="btn-finish">Finalizar →</button>
@@ -807,7 +807,7 @@ let adminData = { encuestas:[], respuestas:[] };
 const CRITERIOS = [
   {cat:"ESTRATÉGICA", n:"Relevo generacional y alineación con la visión", w:0.10, d:"¿El proyecto refuerza la identidad del Club a 10 años? ¿Atrae a hijos y nietos de los socios?"},
   {cat:"ESTRATÉGICA", n:"Activación de inactivos", w:0.10, d:"¿Atrae a quienes hoy no vienen? Foco en 19-25 años y 76+ años, los segmentos más desenganchados."},
-  {cat:"FINANCIERA", n:"Costo total de propiedad vs valorización", w:0.15, d:"CAPEX + OPEX recurrente vs. valor agregado al activo. Menor costo neto = mejor puntaje."},
+  {cat:"FINANCIERA", n:"Costo total de propiedad vs. valorización", w:0.15, d:"CAPEX + OPEX recurrente vs. valor agregado al activo. Menor costo neto = mejor puntaje."},
   {cat:"FINANCIERA", n:"Generación / protección de ingresos", w:0.15, d:"¿Genera ingresos nuevos o protege flujos existentes?"},
   {cat:"EXPERIENCIA", n:"Impacto en socios activos", w:0.15, d:"¿A qué porcentaje de los usuarios reales beneficia? (basado en datos de uso 2025)"},
   {cat:"EXPERIENCIA", n:"Satisfacción / experiencia", w:0.10, d:"¿Mejora tangiblemente la experiencia diaria del socio?"},
@@ -817,31 +817,22 @@ const CRITERIOS = [
 ];
 
 const PROYECTOS = [
-  {k:"Complejo Acuático", n:"Complejo acuático y vestieres niños", capex:2500000000, det:""},
-  {k:"Sede Golf + Tacos", n:"Sede golf + cuarto de tacos + eléctrico", capex:2500000000, det:"500 m²"},
-  {k:"Huellas Campo Golf", n:"Huellas del campo de golf", capex:1589490000, det:"5.046 mtl"},
-  {k:"Sede Taller/Tenis", n:"Sede taller, profesores de tenis y cancheros", capex:1500000000, det:"670 m²"},
-  {k:"Pizzería-Sushi-Rest. Piscina", n:"Pizzería · Sushi · Restaurante piscina", capex:750000000, det:"250 m²"},
-  {k:"Parq. Tenis + Bar Deportivo", n:"Pavimentar parqueadero tenis y bar deportivo", capex:799810000, det:"7.271 m²"},
-  {k:"Capex Operación", n:"Capex operación (mantenimiento esencial)", capex:600000000, det:""},
-  {k:"Reformas a Cocinas", n:"Reformas a cocinas", capex:500000000, det:""},
-  {k:"Bunkers (23 uds)", n:"Bunkers (23 unidades del campo de golf)", capex:444666667, det:""},
-  {k:"Red Media Tensión", n:"Red nueva media tensión (complejo acuático)", capex:350000000, det:""},
-  {k:"Paneles Solares Pádel", n:"Paneles solares Pádel", capex:350000000, det:""},
-  {k:"Transformador Sede Principal", n:"Transformador sede principal", capex:350000000, det:""},
-  {k:"Baterías Sanit. Damas", n:"Baterías sanitarias + vestieres + duchas Damas", capex:220000000, det:""},
-  {k:"Baterías Sanit. Hombres", n:"Baterías sanitarias + vestieres + duchas Hombres", capex:220000000, det:""},
-  {k:"Techo Rialto + Mobiliario", n:"Techo Rialto + mobiliario", capex:200000000, det:""},
+  {k:"Complejo Acuático", n:"Complejo acuatico y vestieres niños", capex:2500000000, det:""},
+  {k:"Sede Golf + Tacos", n:"Sede golf+ cuarto de tacos +Electrico", capex:1800000000, det:""},
+  {k:"Huellas Campo Golf", n:"Huellas del campo de golf (5046 mts)", capex:1589490000, det:"5045 mtl"},
+  {k:"Sede Taller/Tenis", n:"Sede taller, profesores de tenis y cancheros", capex:1500000000, det:"670"},
+  {k:"Pizzería-Sushi-Rest. Piscina", n:"Pizzería - Sushi- restaurante piscina (250mt2)", capex:1250000000, det:"250"},
+  {k:"Parq. Tenis + Bar Deportivo", n:"Pavimentar parqueadero tenis y bar deportivo", capex:799810000, det:"7271"},
+  {k:"Reformas a Cocinas", n:"Reformas a Cocinas", capex:700000000, det:""},
+  {k:"Bunkers (23 uds)", n:"Bunkers (23 Bunkers)", capex:444666667, det:""},
+  {k:"Pozo Profundo", n:"Pozo profundo", capex:600000000, det:""},
+  {k:"Transformador Sede Principal", n:"Transformador sede principal", capex:700000000, det:""},
+  {k:"Baterías Sanitarias", n:"Baterías sanitarias + vestieres + duchas Damas y hombres", capex:440000000, det:""},
+  {k:"Decks Vestieres", n:"Decks vestieres hombres y mujeres", capex:400000000, det:""},
   {k:"Zona Infantil", n:"Zona infantil", capex:150000000, det:""},
   {k:"Billar", n:"Billar", capex:150000000, det:""},
-  {k:"Remod. Administración", n:"Remodelación administración principal", capex:150000000, det:""},
-  {k:"Parqueaderos Golf (40)", n:"Parqueaderos carros de golf (40 unidades)", capex:140000000, det:""},
-  {k:"Decks Lago Palmas", n:"Decks lago Palmas", capex:80000000, det:""},
-  {k:"Coworking", n:"Zonas de coworking y salas de reuniones", capex:80000000, det:""},
-  {k:"Shut de Basuras", n:"Shut de basuras", capex:80000000, det:""},
-  {k:"Portería", n:"Portería", capex:70000000, det:""},
-  {k:"Biblioteca", n:"Biblioteca", capex:50000000, det:""},
-  {k:"Techo Terraza Hoyo 19", n:"Techo Terraza Hoyo 19", capex:50000000, det:""}
+  {k:"Techo Rialto", n:"Techo Rialto, mobiliario", capex:200000000, det:""},
+  {k:"Coworking Biblioteca", n:"Zonas de coworking y biblioteca", capex:480000000, det:""}
 ];
 
 // Justificaciones / contexto por proyecto y criterio (referencia para el votante)
@@ -998,7 +989,7 @@ const CONTEXTO_DEFAULT = Array(9).fill("").map((_,i) =>
 );
 
 // ============ ESTADO ============
-const STORAGE_KEY = 'ccp_priorizacion_2026_v1';
+const STORAGE_KEY = 'ccp_priorizacion_2026_v2';
 let state = {
   voter:{name:"",role:""},
   scores:{}, // { "Proyecto":{0:8,1:5,...} }
@@ -1027,26 +1018,6 @@ function save(){
 const $ = (id)=>document.getElementById(id);
 const formatCOP = n => '$ ' + Math.round(n/1000000).toLocaleString('es-CO') + ' M';
 const formatCOPfull = n => '$ ' + Math.round(n).toLocaleString('es-CO');
-
-function normalizarTexto(valor){
-  return String(valor || "")
-    .trim()
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
-}
-
-function obtenerPesoVoto(nombre){
-  const n = normalizarTexto(nombre);
-
-  const votantesPesoDoble = [
-    "leonardo ronderos",
-    "felipe megia",
-    "felipe mejia"
-  ];
-
-  return votantesPesoDoble.includes(n) ? 2 : 1;
-}
 
 function showToast(msg,type=''){
   const t = $('toast');
@@ -1341,8 +1312,7 @@ async function submitVoteToSupabase(){
         nombre: v.name,
         rol: v.role,
         estado: faltantes.length ? 'parcial' : 'completada',
-        user_agent: navigator.userAgent,
-        peso_voto: obtenerPesoVoto(v.name)
+        user_agent: navigator.userAgent
       })
       .select('id')
       .single();
@@ -1490,11 +1460,7 @@ function renderAdminPanel(){
     });
     const ponderados = [...byEncuesta.values()].map(arr=>{
       let total=0, peso=0;
-      arr.forEach(r=>{
-        const pesoVoto = Number(r.encuesta?.peso_voto || 1);
-        total += Number(r.puntaje) * Number(r.peso) * pesoVoto;
-        peso += Number(r.peso) * pesoVoto;
-      });
+      arr.forEach(r=>{ total += Number(r.puntaje) * Number(r.peso); peso += Number(r.peso); });
       return peso ? total/peso : null;
     }).filter(v=>v != null);
     const simple = g.respuestas.map(r=>Number(r.puntaje)).filter(n=>!Number.isNaN(n));
