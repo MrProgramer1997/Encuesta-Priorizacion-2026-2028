@@ -731,7 +731,8 @@ hr.rule{border:none;border-top:1px solid var(--line);margin:2.5rem 0}
     </div>
     <div class="dash-actions">
       <button class="btn btn-ghost btn-sm" id="btn-admin-refresh" type="button">Actualizar</button>
-      <button class="btn btn-gold btn-sm" id="btn-admin-export" type="button">Exportar CSV</button>
+      <button class="btn btn-gold btn-sm" id="btn-admin-export" type="button">Exportar respuestas CSV</button>
+      <button class="btn btn-gold btn-sm" id="btn-admin-export-ranking" type="button">Exportar ranking ponderado</button>
       <button class="btn btn-ghost btn-sm" id="btn-admin-logout" type="button">Cerrar sesión</button>
     </div>
   </div>
@@ -1526,6 +1527,96 @@ function exportAdminCSV(){
   showToast('CSV administrativo exportado.');
 }
 
+function exportRankingPonderadoCSV(){
+  const rows = getFilteredAdminRows();
+  const grouped = new Map();
+
+  rows.forEach(r=>{
+    const key = r.proyecto_clave || r.proyecto;
+    if(!grouped.has(key)){
+      grouped.set(key, {
+        proyecto: r.proyecto,
+        capex: r.capex,
+        respuestas: []
+      });
+    }
+    grouped.get(key).respuestas.push(r);
+  });
+
+  const ranking = [...grouped.values()].map(g=>{
+    const byEncuesta = new Map();
+
+    g.respuestas.forEach(r=>{
+      if(!byEncuesta.has(r.encuesta_id)){
+        byEncuesta.set(r.encuesta_id, []);
+      }
+      byEncuesta.get(r.encuesta_id).push(r);
+    });
+
+    const ponderados = [...byEncuesta.values()].map(arr=>{
+      let total = 0;
+      let peso = 0;
+
+      arr.forEach(r=>{
+        const pesoCriterio = Number(r.peso || 0);
+        const puntaje = Number(r.puntaje || 0);
+        const pesoVoto = Number(r.encuesta?.peso_voto || 1);
+
+        total += puntaje * pesoCriterio * pesoVoto;
+        peso += pesoCriterio * pesoVoto;
+      });
+
+      return peso ? total / peso : null;
+    }).filter(v => v != null);
+
+    const simple = g.respuestas
+      .map(r => Number(r.puntaje))
+      .filter(n => !Number.isNaN(n));
+
+    const encuestasProyecto = [...byEncuesta.values()];
+    const votosPeso1 = encuestasProyecto.filter(arr => Number(arr[0]?.encuesta?.peso_voto || 1) === 1).length;
+    const votosPeso2 = encuestasProyecto.filter(arr => Number(arr[0]?.encuesta?.peso_voto || 1) === 2).length;
+    const votosEquivalentes = encuestasProyecto.reduce((acc, arr) => acc + Number(arr[0]?.encuesta?.peso_voto || 1), 0);
+
+    return {
+      proyecto: g.proyecto,
+      capex: g.capex,
+      votos: byEncuesta.size,
+      votos_peso_1: votosPeso1,
+      votos_peso_2: votosPeso2,
+      votos_equivalentes: votosEquivalentes,
+      promedio_ponderado: ponderados.length ? ponderados.reduce((a,b)=>a+b,0) / ponderados.length : null,
+      promedio_simple: simple.length ? simple.reduce((a,b)=>a+b,0) / simple.length : null
+    };
+  }).sort((a,b)=>(b.promedio_ponderado || 0) - (a.promedio_ponderado || 0));
+
+  const lines = [];
+  lines.push('Ranking,Proyecto,CAPEX,Votos reales,Votos peso 1,Votos peso 2,Votos equivalentes,Promedio ponderado,Promedio simple');
+
+  ranking.forEach((r,i)=>{
+    const clean = v => `"${String(v ?? '').replace(/"/g,'""')}"`;
+    lines.push([
+      clean(i + 1),
+      clean(r.proyecto),
+      clean(r.capex),
+      clean(r.votos),
+      clean(r.votos_peso_1),
+      clean(r.votos_peso_2),
+      clean(r.votos_equivalentes),
+      clean(r.promedio_ponderado != null ? r.promedio_ponderado.toFixed(2) : ''),
+      clean(r.promedio_simple != null ? r.promedio_simple.toFixed(2) : '')
+    ].join(','));
+  });
+
+  const blob = new Blob(['\uFEFF' + lines.join('\n')], {type:'text/csv;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `Ranking_Ponderado_Priorizacion_${new Date().toISOString().slice(0,10)}.csv`;
+  document.body.appendChild(a); a.click(); a.remove();
+  URL.revokeObjectURL(a.href);
+  showToast('Ranking ponderado exportado correctamente.');
+}
+
 // ============ NAVEGACIÓN ============
 function openVote(projKey){
   state.currentProj = projKey;
@@ -1710,6 +1801,7 @@ function init(){
   $('admin-pass').addEventListener('keydown',(e)=>{ if(e.key==='Enter') loginAdmin(); });
   $('btn-admin-refresh').addEventListener('click',loadAdminResults);
   $('btn-admin-export').addEventListener('click',exportAdminCSV);
+  $('btn-admin-export-ranking').addEventListener('click',exportRankingPonderadoCSV);
   $('btn-admin-logout').addEventListener('click',()=>{ adminSession={usuario:'',password:'',nombre:''}; adminData={encuestas:[],respuestas:[]}; $('admin-pass').value=''; showView('view-admin-login'); });
   $('admin-filter-role').addEventListener('change',renderAdminPanel);
   $('admin-search-project').addEventListener('input',renderAdminPanel);
